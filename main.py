@@ -1,5 +1,4 @@
 from cli.interfaces import InterfacesCLI
-from pfisdas.vektor import Vektor
 from cli.controller import ControllerCLI
 import modulfactory
 

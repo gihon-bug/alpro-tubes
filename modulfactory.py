@@ -1,5 +1,5 @@
 from base.modul import Modul
-from pfisdas.vektor import Vektor
+from fisdas.vektor import Vektor
 
 class ModulType:
     Choice = 1
