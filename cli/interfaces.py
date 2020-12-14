@@ -4,8 +4,9 @@ from typing import Callable
 class InterfacesCLI(InterfacesBase):
     def __init__( self, name ):
         self.set_name(name)
-        self.value = {}
-        self.result = {}
+        self._value = {}
+        self._result = {}
+        self._get_func = {}
     
     def set_name( self, name ):
         self._name = name
@@ -29,8 +30,9 @@ class InterfacesCLI(InterfacesBase):
         if "error_warning" in kwargs:
             error_warning = kwargs["error_warning"]
         
+        
         try:
-            self.value[name] = func( input(input_warning) )
+            self._value[name] = func( input(input_warning) )
         except ValueError:
             print(error_warning)
             return self._get_value( name, kwargs=kwargs )
@@ -40,6 +42,7 @@ class InterfacesCLI(InterfacesBase):
 
         if not "error_warning" in kwargs:
             kwargs["error_warning"] = "hanya masukkan nilai angka, pisahkan desimal dengan \".\" (Titik)"
+        
         return self._get_value( name, kwargs=kwargs )
         
     def get_float( self, name, **kwargs ):
@@ -50,12 +53,12 @@ class InterfacesCLI(InterfacesBase):
         return self._get_value( name, kwargs=kwargs )
 
     def add_func( self, name, func : Callable[ [ dict ], None ] ):
-        if not name in self.result:
-            self.result[name] = []
+        if not name in self._result:
+            self._result[name] = []
 
-        self.result[name].append( func )
+        self._result[name].append( func )
 
     def show_result( self ):
-        for name, val in self.result.items():
+        for name, val in self._result.items():
             for func in val:
-                print(f"{name} = { func(self.value) }")
+                print(f"{name} = { func(self._value) }")
