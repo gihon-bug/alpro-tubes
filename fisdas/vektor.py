@@ -5,9 +5,11 @@ import math
 def kuadrat( val):
     return val ** 2
 
-# kalo mau buat kelas baru,
-# vektornya diganti aja
-# modulnya jangan
+# kalo mau buat kelas(Modul) baru
+# ini filenya dicopy terus ganti nama
+# "Vektor"nya diganti
+# "Moduil"nya jangan
+# kalo udah jadi, masukkin ke file modulfactory.py
 class Vektor( Modul ):
     # ini nama praktikumnya
     name = "Vektor"

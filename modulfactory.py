@@ -5,8 +5,10 @@ class ModulType:
     Choice = 1
     Modul = 2
 
+# ini buat list modulnya
+# langsung masukin sini aja
 list_modul = {
-    "Vektor" : Vektor
+    Vektor.name : Vektor
 }
 
 def get_choice() -> list:
