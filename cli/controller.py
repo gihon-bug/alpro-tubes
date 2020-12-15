@@ -4,12 +4,11 @@ import modulfactory
 
 class ControllerCLI( ControllerBase ):
     def __init__( self ):
-        self._interfaces = []
+        self._interfaces = InterfacesCLI("")
         self._modul : Modul
 
     def show( self ):
-        for interface in self._interfaces:
-            interface.show_result()
+        self._interfaces.show_result()
 
     def get_modul( self, modul : dict ):
         inp = ""
@@ -48,4 +47,4 @@ class ControllerCLI( ControllerBase ):
     def add_modul( self ):
         interface = InterfacesCLI(self._modul.name)
         self._modul.get_value( interface )
-        self._interfaces.append( interface )
+        self._interfaces = interface
