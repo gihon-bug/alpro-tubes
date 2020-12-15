@@ -9,5 +9,5 @@ class ControllerBase( metaclass=abc.ABCMeta ):
     def __init__( self ):
         pass
         
-    def get_modul(self):
+    def get_modul(self, modul : dict ):
         pass

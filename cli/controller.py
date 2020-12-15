@@ -9,36 +9,43 @@ class ControllerCLI( ControllerBase ):
 
     def show( self ):
         for interface in self._interfaces:
-            self._modul.get_value( interface )
             interface.show_result()
 
+    def get_modul( self, modul : dict ):
+        inp = ""
 
-    def get_modul( self ):
-        i = 1
-        list_modul = modulfactory.get_choice()
+        keys : list = []
+        for key in modul.keys():
+            keys.append( key )
 
-        for name in list_modul:
-            print(f"{i}.{name}")
-            i += 1
-        
-        while True:
+        while inp != "0":
+            i = 1
+
+            for name in keys:
+                print(f"{i}.{name}")
+                i += 1
+            print("0.Exit")
+            
             inp = input("masukkan Pilihan:")
             if inp.isdigit():
-                inp = int(inp) - 1
-                if inp < len(list_modul):
-                    # type = modulfactory.get_type( list_modul[inp] )
-                    type = 2
+                idx = int(inp) - 1
+                if idx >= 0 and idx < len( keys ):
+                    modul_name = keys[idx]
+
+                    if issubclass( modul[modul_name], Modul ):
+                        type = modulfactory.ModulType.Modul
+                    elif modul[modul_name] is dict:
+                        type = modulfactory.ModulType.Choice
 
                     if ( type == modulfactory.ModulType.Modul ):
-                        self._modul = modulfactory.get_modul( list_modul[inp] )()
-                    # elif ( type == modulfactory.ModulType.Choice ):
-                        # self.;;
-                        
-                    self.add_modul()
-                    
-                    break
+                        self._modul = modulfactory.get_modul( keys[idx] )()
+                        self.add_modul()
+                        self.show()
 
-    
+                    elif ( type == modulfactory.ModulType.Choice ):
+                        self.get_modul( modul[ keys[idx] ] )
+                            
     def add_modul( self ):
         interface = InterfacesCLI(self._modul.name)
+        self._modul.get_value( interface )
         self._interfaces.append( interface )

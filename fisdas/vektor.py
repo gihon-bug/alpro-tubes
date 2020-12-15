@@ -37,6 +37,10 @@ class Vektor( Modul ):
     # isi key( [key] ) itu sama kayak yang parameter diatas
     # kalo diatas interfaces.get_float("a")
     # ngambilnya value["a"]
+
+    # kalo mau ngambil nama yang dimasukkin
+    # di add_func parameter pertama
+    # bisa ngambil lewat value["_name"]
     def penjumlahan_vektor( self, value : dict ):
         a = value["a"]
         b = value["b"]

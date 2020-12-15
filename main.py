@@ -11,7 +11,7 @@ class Mode(Enum):
 
 def main( mode : Mode ):
     controller = ControllerCLI()
-    controller.get_modul()
+    controller.get_modul( modulfactory.get_all_modul() )
     controller.show()
 
     exit()

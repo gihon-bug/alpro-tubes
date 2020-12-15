@@ -11,11 +11,8 @@ list_modul = {
     Vektor.name : Vektor
 }
 
-def get_choice() -> list:
-    li = []
-    for i in list_modul.keys():
-        li.append( i )
-    return li
+def get_all_modul() -> list:
+    return list_modul
 
 
 def get_type( key : str ):
