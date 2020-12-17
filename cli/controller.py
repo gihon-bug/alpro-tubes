@@ -1,16 +1,18 @@
-from base.controller import Callable, ControllerBase, InterfacesBase, Modul
-from .interfaces import InterfacesCLI
 import modulfactory
+from base.controller import ControllerBase
+from base.modul import Modul
+from .interfaces import InterfacesCLI
 
 class ControllerCLI( ControllerBase ):
     def __init__( self ):
+        super().__init__()
         self._interfaces = InterfacesCLI("")
         self._modul : Modul
 
     def show( self ):
         self._interfaces.show_result()
 
-    def get_modul( self, modul : dict ):
+    def start(self, modul : dict ):
         inp = ""
 
         keys : list = []
@@ -32,17 +34,16 @@ class ControllerCLI( ControllerBase ):
                     modul_name = keys[idx]
 
                     if issubclass( modul[modul_name], Modul ):
-                        type = modulfactory.ModulType.Modul
+                        modul_type = modulfactory.ModulType.Modul
                     elif modul[modul_name] is dict:
-                        type = modulfactory.ModulType.Choice
+                        modul_type = modulfactory.ModulType.Choice
 
-                    if ( type == modulfactory.ModulType.Modul ):
+                    if modul_type == modulfactory.ModulType.Modul:
                         self._modul = modulfactory.get_modul( keys[idx] )()
                         self.add_modul()
                         self.show()
-
-                    elif ( type == modulfactory.ModulType.Choice ):
-                        self.get_modul( modul[ keys[idx] ] )
+                    elif modul_type == modulfactory.ModulType.Choice :
+                        self.start( modul[ keys[idx] ] )
                             
     def add_modul( self ):
         interface = InterfacesCLI(self._modul.name)

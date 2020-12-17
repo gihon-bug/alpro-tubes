@@ -10,7 +10,10 @@ class ModulType:
 # langsung masukin sini aja
 list_modul = {
     Vektor.name : Vektor,
+<<<<<<< HEAD
     MenaraAir.name : MenaraAir
+=======
+>>>>>>> 3fe8230 (refactor)
 }
 
 def get_all_modul() -> list:
