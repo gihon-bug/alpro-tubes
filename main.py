@@ -1,17 +1,20 @@
-from cli.interfaces import InterfacesCLI
-from cli.controller import ControllerCLI
-import modulfactory
-
 import sys
 from enum import Enum
+from cli.controller import ControllerCLI
+from gui.controller import ControllerGUI
+import modulfactory
+
 
 class Mode(Enum):
     GUI = 1
     CLI = 2
 
 def main( mode : Mode ):
-    controller = ControllerCLI()
-    controller.get_modul( modulfactory.get_all_modul() )
+    if mode == Mode.CLI:
+        controller = ControllerCLI()
+    elif mode == Mode.GUI:
+        controller = ControllerGUI()
+    controller.start( modulfactory.get_all_modul() )
 
     exit()
 

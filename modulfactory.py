@@ -8,7 +8,7 @@ class ModulType:
 # ini buat list modulnya
 # langsung masukin sini aja
 list_modul = {
-    Vektor.name : Vektor
+    Vektor.name : Vektor,
 }
 
 def get_all_modul() -> list:
