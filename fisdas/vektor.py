@@ -1,6 +1,6 @@
+import math
 from base.interfaces import InterfacesBase
 from base.modul import Modul
-import math
 
 def kuadrat( val ):
     return val ** 2
