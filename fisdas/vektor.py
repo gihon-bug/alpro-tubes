@@ -1,8 +1,8 @@
+import math
 from base.interfaces import InterfacesBase
 from base.modul import Modul
-import math
 
-def kuadrat( val):
+def kuadrat( val ):
     return val ** 2
 
 # kalo mau buat kelas(Modul) baru
@@ -30,7 +30,7 @@ class Vektor( Modul ):
         # ini bisa dipanggil berkali-kali
         interfaces.add_func("a + b", self.penjumlahan_vektor )
 
-    
+
     # ini fungsi buat ngitung rumusnya
     # parameter kedua itu buat nilai yang diambil dari method
     # get_value diatas
