@@ -1,5 +1,6 @@
-from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QPushButton
+from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QPushButton, QSizePolicy
 from PyQt5.QtCore import Qt
+from .perhitungan_widget import PerhitunganWidget
 
 class ModulWidget(  QGroupBox ):
     def __init__( self, parent=None ):
@@ -25,6 +26,10 @@ class ModulWidget(  QGroupBox ):
         self._clear_value_button.clicked.connect( self.clear_value )
 
         self.layout.setAlignment( Qt.AlignTop )
+
+        self._perhitungan_widget = PerhitunganWidget( self )
+        self._perhitungan_widget.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
+        self.layout.addWidget( self._perhitungan_widget )
 
         self._modul = None
 
