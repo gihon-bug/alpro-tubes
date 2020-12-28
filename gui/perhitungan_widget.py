@@ -1,16 +1,20 @@
-from PyQt5.QtWidgets import QGroupBox, QPushButton, QVBoxLayout
+from PyQt5.QtWidgets import QScrollArea, QGroupBox, QVBoxLayout
 from PyQt5.QtCore import Qt
 from base.modul import Modul
 from .interfaces import InterfacesGUI
 
-class PerhitunganWidget( QGroupBox ):
+class PerhitunganWidget( QScrollArea ):
     def __init__( self, parent=None ):
         super().__init__( parent )
         self._modul : Modul
         self._modul = None
 
-        self.layout = QVBoxLayout( self )
-        self.layout.setAlignment( Qt.AlignTop )
+        self.group_modul = QGroupBox( self )
+        self.group_layout = QVBoxLayout( self.group_modul )
+        self.group_layout.setAlignment( Qt.AlignTop )
+
+        self.setWidget( self.group_modul )
+        self.setWidgetResizable( True )
 
         self._interfaces = []
 
@@ -34,7 +38,7 @@ class PerhitunganWidget( QGroupBox ):
     def add_modul( self ):
         if self._modul is not None:
             interface = InterfacesGUI( self._modul )
-            self.layout.addWidget( interface.get_widgets() )
+            self.group_layout.addWidget( interface.get_widgets() )
 
             modul = self._modul()
             modul.get_value( interface )
