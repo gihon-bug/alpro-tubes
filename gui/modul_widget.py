@@ -6,3 +6,11 @@ class ModulWidget( QGroupBox ):
         super().__init__( parent )
         self.layout = QVBoxLayout( self )
         self.layout.setAlignment( Qt.AlignTop )
+
+        self._modul = None
+
+    def set_modul( self, modul ):
+        self._modul = modul
+
+    def get_modul( self ):
+        return self._modul
