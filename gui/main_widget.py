@@ -36,4 +36,4 @@ class MainWidget( QWidget ):
         pass
 
     def change_modul( self, modul ):
-        pass
+        self._modul_widget.set_modul( modul )
