@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout
 from PyQt5.QtCore import Qt
 from base.modul import Modul
+from .interfaces import InterfacesGUI
 
 class PerhitunganWidget( QWidget ):
     def __init__( self, parent=None ):
@@ -16,11 +17,19 @@ class PerhitunganWidget( QWidget ):
 
         self.layout.addWidget( self._add_button )
 
+        self._interfaces = []
+
     def set_modul( self, modul ):
         if self._modul is not modul:
             self._modul = modul
             self.add_modul()
 
     def add_modul( self ):
-        if self._modul != None:
-            pass
+        if self._modul is not None:
+            interface = InterfacesGUI( self._modul )
+            interface.set_parent( self.layout )
+
+            modul = self._modul()
+            modul.get_value( interface )
+
+            self._interfaces.append( interface )
