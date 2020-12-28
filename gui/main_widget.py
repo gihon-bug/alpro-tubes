@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QSizePolicy
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QSizePolicy, QPushButton
 from PyQt5.QtCore import Qt
 from .button_widget import ButtonWidget
 from .modul_widget import ModulWidget
@@ -16,8 +16,13 @@ class MainWidget( QWidget ):
         self._button_widget = ButtonWidget( self )
         self._button_widget.setSizePolicy( QSizePolicy.MinimumExpanding, QSizePolicy.Expanding )
 
+
         self._modul_layout = QVBoxLayout()
         self._modul_layout.setAlignment( Qt.AlignTop )
+
+        self._add_modul_button = QPushButton("Add")
+        self._add_modul_button.clicked.connect( self.add_modul )
+        self._modul_layout.addWidget( self._add_modul_button )
 
         self._modul_widget = ModulWidget( self )
         self._modul_widget.setSizePolicy( QSizePolicy.MinimumExpanding, QSizePolicy.Expanding )
@@ -35,6 +40,9 @@ class MainWidget( QWidget ):
         self._button_widget.set_modul( self._modul )
         self._button_widget.adjustSize()
         self._button_widget.clicked.connect( self.change_modul )
+
+    def add_modul( self ):
+        pass
 
     def change_modul( self, modul ):
         pass
