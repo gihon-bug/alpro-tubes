@@ -12,7 +12,8 @@ class PerhitunganWidget( QWidget ):
         self.layout.setAlignment( Qt.AlignTop )
 
     def set_modul( self, modul ):
-        self._modul = modul
+        if self._modul != modul:
+            self._modul = modul
 
     def add_modul( self ):
         if self._modul != None:
