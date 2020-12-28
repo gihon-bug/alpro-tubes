@@ -13,3 +13,7 @@ class PerhitunganWidget( QWidget ):
 
     def set_modul( self, modul ):
         self._modul = modul
+
+    def add_modul( self ):
+        if self._modul != None:
+            pass
