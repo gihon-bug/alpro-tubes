@@ -1,11 +1,8 @@
 import sys
-import abc
 from PyQt5.QtWidgets import QApplication,QMainWindow
-from PyQt5.QtCore import Qt, QObject
 from base.controller import ControllerBase
 from .interfaces import InterfacesGUI
 from .main_widget import MainWidget
-from base.modul import Modul
 
 class ControllerGUI(  ControllerBase, ):
     def __init__( self ):
