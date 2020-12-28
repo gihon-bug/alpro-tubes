@@ -1,9 +1,9 @@
-from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout
+from PyQt5.QtWidgets import QGroupBox, QPushButton, QVBoxLayout
 from PyQt5.QtCore import Qt
 from base.modul import Modul
 from .interfaces import InterfacesGUI
 
-class PerhitunganWidget( QWidget ):
+class PerhitunganWidget( QGroupBox ):
     def __init__( self, parent=None ):
         super().__init__( parent )
         self._modul : Modul
@@ -12,22 +12,23 @@ class PerhitunganWidget( QWidget ):
         self.layout = QVBoxLayout( self )
         self.layout.setAlignment( Qt.AlignTop )
 
-        self._add_button = QPushButton( "Add", self )
-        self._add_button.clicked.connect( self.add_modul )
-
-        self.layout.addWidget( self._add_button )
-
         self._interfaces = []
 
     def set_modul( self, modul ):
         if self._modul is not modul:
+            self.clear_modul()
             self._modul = modul
             self.add_modul()
+
+    def clear_modul( self ):
+        for item in self._interfaces:
+            item.delete_widgets()
+        self._interfaces.clear()
 
     def add_modul( self ):
         if self._modul is not None:
             interface = InterfacesGUI( self._modul )
-            interface.set_parent( self.layout )
+            self.layout.addWidget( interface.get_widgets() )
 
             modul = self._modul()
             modul.get_value( interface )
