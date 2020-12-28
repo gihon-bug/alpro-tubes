@@ -9,6 +9,7 @@ from base.modul import Modul
 
 class ControllerGUI(  ControllerBase, ):
     def __init__( self ):
+        super().__init__()
         self.app = QApplication( sys.argv )
 
         self._window = QMainWindow()
