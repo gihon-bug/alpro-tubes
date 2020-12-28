@@ -21,11 +21,10 @@ class PerhitunganWidget( QGroupBox ):
             self.add_modul()
 
     def clear_modul( self ):
-        for item in self._interfaces:
-            item.delete_widgets()
-        self._interfaces.clear()
+        for i in range( len( self._interfaces ) ):
+            self.pop_modul()
 
-    def remove_modul( self ):
+    def pop_modul( self ):
         interface = self._interfaces.pop( len(self._interfaces) - 1 )
         interface.delete_widgets()
 
