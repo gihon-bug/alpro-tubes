@@ -6,7 +6,7 @@ class ModulButton( QPushButton ):
     clicked = QtCore.pyqtSignal( object )
 
     def __init__( self, name, parent=None ):
-        super().__init__( name )
+        super().__init__( name, parent )
         self._name : str
         self._modul : Modul
 
