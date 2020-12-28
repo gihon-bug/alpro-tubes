@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QPushButton
+from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout
 from PyQt5.QtCore import Qt
 from base.modul import Modul
 
@@ -8,7 +8,7 @@ class PerhitunganWidget( QWidget ):
         self._modul : Modul
         self._modul = None
 
-        self.layout = QGridLayout( self )
+        self.layout = QVBoxLayout( self )
         self.layout.setAlignment( Qt.AlignTop )
 
     def set_modul( self, modul ):
