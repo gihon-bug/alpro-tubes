@@ -14,7 +14,7 @@ class MainWidget( QWidget ):
         self._modul = {}
 
         self._button_widget = ButtonWidget( self )
-        self._button_widget.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Expanding )
+        self._button_widget.setSizePolicy( QSizePolicy.MinimumExpanding, QSizePolicy.Expanding )
         self._modul_widget = ModulWidget( self )
         self._modul_widget.setSizePolicy( QSizePolicy.MinimumExpanding, QSizePolicy.Expanding )
 
