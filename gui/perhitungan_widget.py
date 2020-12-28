@@ -17,8 +17,9 @@ class PerhitunganWidget( QWidget ):
         self.layout.addWidget( self._add_button )
 
     def set_modul( self, modul ):
-        if self._modul != modul:
+        if self._modul is not modul:
             self._modul = modul
+            self.add_modul()
 
     def add_modul( self ):
         if self._modul != None:
