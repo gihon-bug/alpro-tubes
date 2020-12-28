@@ -29,8 +29,5 @@ class MainWidget( QWidget ):
         self._button_widget.adjustSize()
         self._button_widget.clicked.connect( self.change_modul )
 
-        print( self._button_widget.size() )
-
-    def change_modul( self ):
-        pass
-
+    def change_modul( self, modul ):
+        self._perhitungan_widget.set_modul( modul )
