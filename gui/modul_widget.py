@@ -20,21 +20,22 @@ class ModulWidget(  QGroupBox ):
         self._button_layout.addWidget( self._remove_button )
         self._button_layout.addWidget( self._clear_modul_button )
 
-        self._add_button.clicked.connect( self.add_modul )
-        self._remove_button.clicked.connect( self.remove_modul )
-        self._clear_modul_button.clicked.connect( self.clear_modul )
-        self._clear_value_button.clicked.connect( self.clear_value )
-
         self.layout.setAlignment( Qt.AlignTop )
 
         self._perhitungan_widget = PerhitunganWidget( self )
         self._perhitungan_widget.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
         self.layout.addWidget( self._perhitungan_widget )
 
+        self._add_button.clicked.connect( self._perhitungan_widget.add_modul )
+        self._remove_button.clicked.connect( self._perhitungan_widget.pop_modul )
+        self._clear_modul_button.clicked.connect( self._perhitungan_widget.clear_modul )
+        self._clear_value_button.clicked.connect( self._perhitungan_widget.clear_value )
+
         self._modul = None
 
     def set_modul( self, modul ):
         self._modul = modul
+        self._perhitungan_widget.set_modul( modul )
 
     def get_modul( self ):
         return self._modul
