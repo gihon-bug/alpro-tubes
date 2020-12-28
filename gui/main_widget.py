@@ -14,6 +14,7 @@ class MainWidget( QWidget ):
         self._modul = {}
 
         self._button_widget = ButtonWidget( self )
+        self._button_widget.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Expanding )
         self._perhitungan_widget = PerhitunganWidget( self )
 
         self.layout.addWidget( self._button_widget, 1  )
