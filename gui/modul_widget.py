@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QGroupBox
 
-class ModulWidget( QWidget ):
+class ModulWidget( QGroupBox ):
     def __init__( self, parent=None ):
         super().__init__( parent )
