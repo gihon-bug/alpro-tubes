@@ -5,5 +5,5 @@ class LineEdit( QLineEdit ):
         super().__init__( "" , parent )
         self._name = name
     
-    def get_naem( self ):
+    def get_name( self ):
         return self._name
