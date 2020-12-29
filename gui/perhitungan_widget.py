@@ -30,6 +30,7 @@ class PerhitunganWidget( QScrollArea ):
 
     def pop_modul( self ):
         interface = self._interfaces.pop( len(self._interfaces) - 1 )
+        self.group_layout.removeWidget( interface.get_widgets() )
         interface.delete_widgets()
 
     def clear_value( self ):
