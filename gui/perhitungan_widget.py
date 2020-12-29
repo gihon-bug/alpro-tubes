@@ -1,28 +1,41 @@
-from PyQt5.QtWidgets import QScrollArea, QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QGroupBox, QWidget, QHBoxLayout
 from PyQt5.QtCore import Qt
 from base.modul import Modul
 from .interfaces import InterfacesGUI
+from .line_edit_group import LineEditGroup, LineEdit
 
-class PerhitunganWidget( QScrollArea ):
-    def __init__( self, parent=None ):
+class PerhitunganWidget( QGroupBox ):
+
+    def __init__( self, parent=None, modul : Modul = None ):
         super().__init__( parent )
         self._modul : Modul
         self._modul = None
+        self.set_modul( modul )
 
-        self.group_modul = QWidget( self )
-        self.group_layout = QVBoxLayout( self.group_modul )
-        self.group_layout.setAlignment( Qt.AlignTop )
+        self.layout = QHBoxLayout( self )
+        self.setLayout( self.layout )
 
-        self.setWidget( self.group_modul )
-        self.setWidgetResizable( True )
+        self._interfaces = InterfacesGUI("")
 
-        self._interfaces = []
+        self._user_input = LineEditGroup( self )
+        self._user_input.set_column_limit( 3 )
+        self._user_output = LineEditGroup( self )
+        self._user_output.set_column_limit( 1 )
+
+        self._interfaces.set_input( self._user_input )
+        self._interfaces.set_output( self._user_output )
+
+        self.layout.addWidget( self._user_input, 3 )
+        self.layout.addWidget( self._user_output, 1 )
 
     def set_modul( self, modul ):
         if self._modul is not modul:
-            self.clear_modul()
             self._modul = modul
-            self.add_modul()
+            self._interfaces.set_name( modul.name )
+
+            modul_inst = modul()
+            modul_inst.get_value( self._interfaces )
+
 
     def clear_modul( self ):
         i = 0
@@ -31,20 +44,5 @@ class PerhitunganWidget( QScrollArea ):
             self.pop_modul()
             i += 1
 
-    def pop_modul( self ):
-        interface = self._interfaces.pop( len(self._interfaces) - 1 )
-        self.group_layout.removeWidget( interface.get_widgets() )
-        interface.delete_widgets()
-
     def clear_value( self ):
         pass
-
-    def add_modul( self ):
-        if self._modul is not None:
-            interface = InterfacesGUI( self._modul )
-            self.group_layout.addWidget( interface.get_widgets() )
-
-            modul = self._modul()
-            modul.get_value( interface )
-
-            self._interfaces.append( interface )
