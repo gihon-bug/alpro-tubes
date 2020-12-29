@@ -19,5 +19,5 @@ class FormVLayout( QGridLayout ):
     def addLayout( self, name, layout : QLayout, row, col ):
         label = QLabel( name )
 
-        super().addWidget( label, row, * 2, col )
+        super().addWidget( label, row * 2, col )
         super().addLayout( layout, row * 2 + 1, col )
