@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QScrollArea, QGroupBox, QVBoxLayout, QSizePolicy
+from PyQt5.QtWidgets import QScrollArea, QGroupBox, QVBoxLayout
 from PyQt5.QtCore import Qt
 from .perhitungan_widget import PerhitunganWidget
 
@@ -23,7 +23,6 @@ class ModulGroup( QScrollArea ):
         if self._modul is not None:
             modul = self._modul()
             modul_widget = PerhitunganWidget( self.group_modul, modul )
-            modul_widget.setSizePolicy( QSizePolicy.Preferred , QSizePolicy.Minimum )
 
             self.group_layout.addWidget( modul_widget )
             self._modul_list.append( modul_widget )
