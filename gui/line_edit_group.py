@@ -74,9 +74,15 @@ class LineEditGroup( QGroupBox ):
         return int( text )
 
     def calc_value( self, value ):
-        for key in self._line_edit.values():
+        for name, key in self._line_edit.items():
             if issubclass( LineEdit, type(key) ):
-                key.calc_value( value )
+                value[name] = key.calc_value( value )
             elif isinstance( key, list ):
+                if name not in value:
+                    value[name] = []
+                elif not isinstance( value[name], list ):
+                    temp = value[name]
+                    value[name] = [ temp ]
+
                 for item in key:
-                    item.calc_value( value )
+                    value[name].append( item.calc_value( value ) )
