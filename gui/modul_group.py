@@ -41,4 +41,3 @@ class ModulGroup( QScrollArea ):
 
     def clear_value( self ):
         pass
-

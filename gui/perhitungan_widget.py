@@ -1,8 +1,7 @@
-from PyQt5.QtWidgets import QGroupBox, QWidget, QHBoxLayout
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QGroupBox, QHBoxLayout
 from base.modul import Modul
 from .interfaces import InterfacesGUI
-from .line_edit_group import LineEditGroup, LineEdit
+from .line_edit_group import LineEditGroup
 
 class PerhitunganWidget( QGroupBox ):
 

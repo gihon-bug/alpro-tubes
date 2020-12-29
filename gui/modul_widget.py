@@ -1,6 +1,5 @@
-from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QPushButton, QSizePolicy, QScrollArea, QWidget
+from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QPushButton
 from PyQt5.QtCore import Qt
-from .perhitungan_widget import PerhitunganWidget
 from .modul_group import ModulGroup
 
 class ModulWidget(  QGroupBox ):
@@ -22,8 +21,6 @@ class ModulWidget(  QGroupBox ):
         self._button_layout.addWidget( self._clear_modul_button )
 
         self.layout.setAlignment( Qt.AlignTop )
-
-
 
         self._modul_group = ModulGroup( self )
         self.layout.addWidget( self._modul_group )

@@ -1,8 +1,6 @@
 from PyQt5.QtWidgets import QGridLayout, QWidget, QLabel, QLayout
 
 class FormVLayout( QGridLayout ):
-    def __init__( self, parent=None ):
-        super().__init__( parent )
 
     def addWidget( self, name, widget : QWidget, row : int, col : int ):
         label = QLabel( name )

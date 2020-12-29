@@ -20,7 +20,7 @@ class ControllerGUI(  ControllerBase, ):
         self._modul = {}
 
         self._interfaces = InterfacesGUI
-    
+
     def start(self, modul : dict ):
         self._modul = modul
         self._widgets.set_modul( modul )
