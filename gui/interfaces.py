@@ -24,6 +24,7 @@ class InterfacesGUI( InterfacesBase ):
 
     def _add_getter( self, name, options : dict ):
         line_edit = LineEdit( name )
+        line_edit.set_option( options )
 
         if options["func"] == float:
             line_edit.setValidator( QDoubleValidator( line_edit ) )
@@ -34,6 +35,9 @@ class InterfacesGUI( InterfacesBase ):
 
     def add_func( self, name, func : Callable[ [dict], None ], **options ):
         line = LineEdit(name)
+        line.set_option( options )
+        line.set_calculation( func )
+
         line.setValidator( QDoubleValidator( line ) )
 
         line.setReadOnly( True )
