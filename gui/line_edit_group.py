@@ -72,3 +72,6 @@ class LineEditGroup( QGroupBox ):
             return float( text )
 
         return int( text )
+
+    def calc_value( self, value ):
+        pass
