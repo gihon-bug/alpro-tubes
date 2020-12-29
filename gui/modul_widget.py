@@ -34,5 +34,6 @@ class ModulWidget(  QGroupBox ):
 
     def set_modul( self, modul ):
         self._modul = modul
+        self._modul_group.clear_modul()
         self._modul_group.set_modul( modul )
         self._modul_group.add_modul()
