@@ -10,7 +10,7 @@ class InterfacesBase(metaclass=abc.ABCMeta):
     def set_name( self, name ):
         pass
 
-    def get_name( self, name ):
+    def get_name( self ):
         pass
 
     def _add_getter( self, name, options : dict ):
