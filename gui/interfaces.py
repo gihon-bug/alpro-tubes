@@ -1,14 +1,11 @@
 from typing import Callable
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QWidget, QGroupBox, QHBoxLayout
 from PyQt5.QtGui import QIntValidator, QDoubleValidator
 from base.interfaces import InterfacesBase
-from .form_v_layout import FormVLayout
 from .line_edit_group import LineEditGroup
 from .line_edit import LineEdit
 
 class InterfacesGUI( InterfacesBase ):
-    def __init__( self, name, parent=None ):
+    def __init__( self, parent=None ):
         super().__init__( parent )
         self._user_input : LineEditGroup
         self._user_output : LineEditGroup
@@ -36,9 +33,6 @@ class InterfacesGUI( InterfacesBase ):
         self._user_input.add_line_edit( line_edit )
 
     def add_func( self, name, func : Callable[ [dict], None ], **options ):
-        # if not name in self._list_func:
-            # self._list_func[name] = func
-
         line = LineEdit(name)
         line.setValidator( QDoubleValidator( line ) )
 
