@@ -39,3 +39,6 @@ class PerhitunganWidget( QGroupBox ):
 
     def text_change_event( self, value ):
         self._user_output.calc_value( value )
+
+    def clear_value( self ):
+        self._user_input.clear_value()
