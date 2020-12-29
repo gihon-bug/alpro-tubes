@@ -1,6 +1,8 @@
 from base.modul import Modul
 from fisdas.vektor import Vektor
 from fisdas.menara_air import MenaraAir
+from fisdas.gelombang import Gelombang
+from fisdas.gerakpeluru import GerakPeluru
 
 class ModulType:
     Choice = 1
@@ -10,7 +12,9 @@ class ModulType:
 # langsung masukin sini aja
 list_modul = {
     Vektor.name : Vektor,
-    MenaraAir.name : MenaraAir
+    MenaraAir.name : MenaraAir,
+    Gelombang.name : Gelombang,
+    GerakPeluru.name : GerakPeluru
 }
 
 def get_all_modul() -> list:
