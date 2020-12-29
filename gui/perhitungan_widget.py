@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QScrollArea, QGroupBox, QVBoxLayout
+from PyQt5.QtWidgets import QScrollArea, QWidget, QVBoxLayout
 from PyQt5.QtCore import Qt
 from base.modul import Modul
 from .interfaces import InterfacesGUI
@@ -9,7 +9,7 @@ class PerhitunganWidget( QScrollArea ):
         self._modul : Modul
         self._modul = None
 
-        self.group_modul = QGroupBox( self )
+        self.group_modul = QWidget( self )
         self.group_layout = QVBoxLayout( self.group_modul )
         self.group_layout.setAlignment( Qt.AlignTop )
 
