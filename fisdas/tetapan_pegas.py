@@ -5,7 +5,7 @@ import math
 def kuadrat(val):
     return val ** 2
 
-class Vektor(Modul):
+class TetapanPegas(Modul):
     name = "Tetapan Pegas"
 
     def get_value(self, interfaces: InterfacesBase):
