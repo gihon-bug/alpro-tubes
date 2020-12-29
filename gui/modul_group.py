@@ -14,6 +14,8 @@ class ModulGroup( QScrollArea ):
 
         self.setWidget( self.group_modul )
 
+        self._modul_list = []
+
     def set_modul( self, modul ):
         self._modul = modul
 
@@ -24,4 +26,19 @@ class ModulGroup( QScrollArea ):
             modul_widget.setSizePolicy( QSizePolicy.Preferred , QSizePolicy.Minimum )
 
             self.group_layout.addWidget( modul_widget )
+            self._modul_list.append( modul_widget )
+
+    def pop_modul( self ):
+        if self._modul_list:
+            modul_widget = self._modul_list.pop()
+            modul_widget.hide()
+            modul_widget.destroy()
+            self.group_layout.removeWidget( modul_widget )
+
+    def clear_modul( self ):
+        while self._modul_list:
+            self.pop_modul()
+
+    def clear_value( self ):
+        pass
 
