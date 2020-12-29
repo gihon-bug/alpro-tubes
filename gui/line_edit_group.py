@@ -27,14 +27,12 @@ class LineEditGroup( QGroupBox ):
     def set_row_limit( self, row ):
         self._row_limit = row
 
-
     def add_line_edit( self, item : LineEdit ):
-        self._line_edit[ item.get_name()]  = item
+        self._line_edit[ item.get_name() ] = item
         self.layout.addWidget( item.get_name(), self._line_edit[ item.get_name() ], self._row, self._col )
 
-        self._row += 1
+        self._col += 1
 
-        if self._row >= self._row_limit:
-            self._row = 0
-            self._col += 1
-
+        if self._col >= self._column_limit:
+            self._row += 1
+            self._col = 0
