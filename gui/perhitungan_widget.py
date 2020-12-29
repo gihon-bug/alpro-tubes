@@ -25,8 +25,11 @@ class PerhitunganWidget( QScrollArea ):
             self.add_modul()
 
     def clear_modul( self ):
-        for i in range( len( self._interfaces ) ):
+        i = 0
+        length = len( self._interfaces )
+        while i < length:
             self.pop_modul()
+            i += 1
 
     def pop_modul( self ):
         interface = self._interfaces.pop( len(self._interfaces) - 1 )
