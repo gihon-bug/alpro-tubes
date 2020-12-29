@@ -17,6 +17,8 @@ class PerhitunganWidget( QGroupBox ):
 
         self._user_input = LineEditGroup( self )
         self._user_input.set_column_limit( 3 )
+        self._user_input.changed.connect( self.text_change_event )
+
         self._user_output = LineEditGroup( self )
         self._user_output.set_column_limit( 2 )
 
@@ -35,13 +37,5 @@ class PerhitunganWidget( QGroupBox ):
 
             modul.get_value( self._interfaces )
 
-
-    def clear_modul( self ):
-        i = 0
-        length = len( self._interfaces )
-        while i < length:
-            self.pop_modul()
-            i += 1
-
-    def clear_value( self ):
-        pass
+    def text_change_event( self, value ):
+        self._user_output.calc_value( value )
