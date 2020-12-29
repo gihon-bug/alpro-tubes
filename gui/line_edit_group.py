@@ -3,7 +3,7 @@ from PyQt5.QtCore import Qt
 from .form_v_layout import FormVLayout
 from .line_edit import LineEdit
 
-class LineEditWidget( QGroupBox ):
+class LineEditGroup( QGroupBox ):
     def __init__( self, parent=None ):
         super().__init__( parent )
         self.layout = FormVLayout( self )
