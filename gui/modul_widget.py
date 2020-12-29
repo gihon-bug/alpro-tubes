@@ -23,33 +23,19 @@ class ModulWidget(  QGroupBox ):
 
         self.layout.setAlignment( Qt.AlignTop )
 
-        self._add_button.clicked.connect( self.add_modul )
-        self._remove_button.clicked.connect( self.pop_modul )
-        self._clear_modul_button.clicked.connect( self.clear_modul )
-        self._clear_value_button.clicked.connect( self.clear_value )
+
 
         self._modul_group = ModulGroup( self )
-
         self.layout.addWidget( self._modul_group )
+
+        self._add_button.clicked.connect( self._modul_group.add_modul )
+        self._remove_button.clicked.connect( self._modul_group.pop_modul )
+        self._clear_modul_button.clicked.connect( self._modul_group.clear_modul )
+        self._clear_value_button.clicked.connect( self._modul_group.clear_value )
 
         self._modul = None
 
     def set_modul( self, modul ):
         self._modul = modul
         self._modul_group.set_modul( modul )
-        self.add_modul()
-
-    def get_modul( self ):
-        return self._modul
-
-    def add_modul( self ):
         self._modul_group.add_modul()
-
-    def pop_modul( self ):
-        pass
-
-    def clear_modul( self ):
-        pass
-
-    def clear_value( self ):
-        pass
