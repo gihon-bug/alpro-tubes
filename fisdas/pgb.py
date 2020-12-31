@@ -14,6 +14,9 @@ class PGB( Modul ):
     def periode_getaran( self, value : dict ):
         t = value ["t"]
         n = value ["n"]
+        
+        if n == 0:
+            return 0
 
         periode = n/t
         return periode
@@ -23,5 +26,8 @@ class PGB( Modul ):
         n = value ["n"]
         t = value ["t"]
 
-        g = (4*(math.pi ** 2)*l) / (n/t) ** 2
+        if value ["Periode"] == 0:
+            return 0
+
+        g = (4*(math.pi ** 2)*l) / (value ["Periode"]) ** 2
         return g
