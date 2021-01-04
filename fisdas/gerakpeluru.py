@@ -20,7 +20,7 @@ class GerakPeluru(Modul):
     name = "Gerak Peluru"
 
     # ini tempat ngambil nilai
-    def get_value(self, interfaces: InterfacesBase):
+    def init_formula(self, interfaces: InterfacesBase):
         # kalo mau minta bilangan bulat pake get_int
         # kalo minta bilangan desimal pake get_float
         # parameter pertama itu buat namain variablenya pas nanti dioper

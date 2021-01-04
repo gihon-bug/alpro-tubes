@@ -2,7 +2,7 @@ from base.interfaces import InterfacesBase
 from base.modul import Modul
 class GLB( Modul ):
     name = "GLB"
-    def get_value( self, interfaces : InterfacesBase ):
+    def init_formula( self, interfaces : InterfacesBase ):
         interfaces.get_float("v", prefix="m/s" )
         interfaces.get_float("t", prefix="s")
         interfaces.add_func("s", self.hasil_glb, prefix="m" )

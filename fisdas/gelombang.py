@@ -2,7 +2,7 @@ from base.interfaces import InterfacesBase
 from base.modul import Modul
 class Gelombang( Modul ):
     name = "Gelombang"
-    def get_value( self, interfaces : InterfacesBase ):
+    def init_formula( self, interfaces : InterfacesBase ):
         interfaces.get_float("s")
         interfaces.get_float("n")
         interfaces.get_float("lamda")

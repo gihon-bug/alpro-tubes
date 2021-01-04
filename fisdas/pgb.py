@@ -5,7 +5,7 @@ import math
 class PGB( Modul ):
     name = "Percepatan Gravitasi Bumi"
 
-    def get_value( self, interfaces : InterfacesBase ):
+    def init_formula( self, interfaces : InterfacesBase ):
         interfaces.get_float("l")
         interfaces.get_float("t")
         interfaces.add_func("Periode", self.periode_getaran )

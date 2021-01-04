@@ -5,7 +5,7 @@ class Modul( metaclass=abc.ABCMeta ):
     name = ""
     @abc.abstractclassmethod
 
-    def get_value( self, interfaces : InterfacesBase ):
+    def init_formula( self, interfaces : InterfacesBase ):
         pass
 
     def show( self ):
