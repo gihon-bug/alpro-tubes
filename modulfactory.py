@@ -4,6 +4,8 @@ from fisdas.menara_air import MenaraAir
 from fisdas.gelombang import Gelombang
 from fisdas.gerakpeluru import GerakPeluru
 from fisdas.tetapan_pegas import TetapanPegas
+from fisdas.glb import GLB
+from fisdas.glbb import GLBB
 
 class ModulType:
     Choice = 1
@@ -16,7 +18,9 @@ list_modul = {
     MenaraAir.name : MenaraAir,
     Gelombang.name : Gelombang,
     GerakPeluru.name : GerakPeluru,
-    TetapanPegas.name : TetapanPegas
+    TetapanPegas.name : TetapanPegas,
+    GLB.name : GLB,
+    GLBB.name : GLBB
 }
 
 def get_all_modul() -> list:
